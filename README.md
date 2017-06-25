@@ -58,6 +58,6 @@ In order to try this yourself, follow the steps below:
 
 ## Conclusions ##
 
-The results speaks for themselves. Serializable carts performs really well compared to the other two. The newer order repository (without serializable carts enabled) is just slightly faster than the cart helper. Just getting rid of cart helper namespaces won't bring you any performance improvements.
+The results speaks for themselves. Serializable carts performs really well compared to the other two. The newer order repository (without serializable carts enabled) is just as fast/slow as the cart helper. Just getting rid of cart helper namespaces won't bring you any performance improvements.
 
 I think that serializable carts are mature enough to be used in production. There are drawbacks though. The serialized cart is stored as json in the database, so if you want to query carts based on some metadata, that will be tricky. If you don't need to do that, go with serializable carts!
