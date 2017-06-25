@@ -24,7 +24,7 @@ If operations 1 to 3 (the most common operations) are quicker when using seriali
 
 To measure the performance, I execute the operations in a Web API and stress the API using Apache Benchmark:
 
-`ab.exe -c 50 -n 1000 http://localhost:XXXXX/api/xxxxx`
+`ab.exe -c 50 -n 1000 http://localhost:61651/api/cart?operationsToExecute=1`
 
 * `-c 50` indicates 50 clients
 * `-n 1000` indicates the total number of requests
@@ -47,9 +47,14 @@ I'm no expert on neither benchmarking nor Episerver Commerce and there can be th
 
 In order to try this yourself, follow the steps below:
 
-1. `git clone http://thisrepo.com`
-2. `PM> Install-EPiDatabases`
-3. `PM> Update-EPiDatabases`
+1. Clone this repository `git clone https://github.com/AndreasJilvero/BenchmarkingEpiserverCarts.git`
+2. Create two local databases and replace the existing connection strings in the web config
+3. Run Episerver SQL install script `PM> Install-EPiDatabases`
+4. Run Episerver SQL update script `PM> Update-EPiDatabases`
+5. Run Star.Epi.CMS
+6. Login as your Windows user
+7. Execute all migration steps 
+8. Use Apache Benchmark (or any other tool) to perform requests
 
 ## Conclusions ##
 
