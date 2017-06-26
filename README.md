@@ -1,6 +1,6 @@
 # Benchmarking Episerver serializable carts #
 
-In newer Episerver commerce versions, you work with an `ICart` instead of a `Cart`. A `Cart` is an `ICart`, but an `ICart` can be a `SerializableCart` as well. A `Cart` is stored in the old OrderGroup tables, whereas the `SerializableCart` is stored as Json within its own SerializableCart table.
+In version 10.2, Episerver introduced a new feature called [serializable carts](https://world.episerver.com/documentation/developer-guides/commerce/orders/serializable-carts/). This enables you to store carts as json in a key-value manner to improve performance.
 
 This project aims to benchmark the performance improvements of Episervers new serializable carts systems. I will compare:
 
@@ -43,7 +43,7 @@ The output of each benchmark will be the time it takes to process 1000 requests.
 
 ## Contribute ##
 
-I'm no expert on neither benchmarking nor Episerver Commerce and there can be things to improve. Please create a pull request if you think you can improve these benchmarks.
+I'm no expert in neither benchmarking nor Episerver Commerce and there can be things to improve. Please create a pull request if you think you can improve these benchmarks.
 
 In order to try this yourself, follow the steps below:
 
