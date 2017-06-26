@@ -2,7 +2,7 @@
 
 In version 10.2, Episerver introduced a new feature called [serializable carts](https://world.episerver.com/documentation/developer-guides/commerce/orders/serializable-carts/). This enables you to store carts as json in a key-value manner to improve performance.
 
-This project aims to benchmark the performance improvements of Episervers new serializable carts systems. I will compare:
+This project aims to benchmark the performance improvements of Episervers new serializable carts system. I will compare:
 
 1. The old cart helper
 2. The new order repository
@@ -13,7 +13,7 @@ In order to create good measurements, I will benchmark the same operations perfo
 1. Create an empty cart and persist it
 2. Add a line item with a meta field to that cart and persist it
 3. Validate the cart and apply campaigns and persist it
-4. Apply payment and process it and persist the cart
+4. Apply payment, process it and persist the cart
 5. Persist the cart as a purchase order
 
 I find it difficult to benchmark only one of these operations at a time, therefore when I execute a step, I also execute the steps prior to that step - i.e. in order to benchmark step 3, I also run step 1 and 2 before.
@@ -45,7 +45,7 @@ The output of each benchmark will be the time it takes to process 1000 requests.
 
 The results speaks for themselves. Serializable carts performs really well compared to the other two. The newer order repository (without serializable carts enabled) is just as fast/slow as the cart helper. Just getting rid of cart helper namespaces won't bring you any performance improvements.
 
-I think that serializable carts are mature enough to be used in production. There are drawbacks though. The serialized cart is stored as json in the database, so if you want to query carts based on some metadata, that will be tricky. If you don't need to do that, go with serializable carts!
+I think that serializable carts are mature enough to be used in production, but there are drawbacks though. The serialized cart is stored as json in the database, so if you want to query carts based on some metadata, that will be tricky. If you don't need to do that, go with serializable carts!
 
 ## Contribute ##
 
@@ -59,5 +59,5 @@ In order to try this yourself, follow the steps below:
 4. Run Episerver SQL update script `PM> Update-EPiDatabases`
 5. Run Star.Epi.CMS
 6. Login as your Windows user
-7. Execute all migration steps 
+7. Execute all migration steps (this will setup products needed to run the benchmarks)
 8. Use Apache Benchmark (or any other tool) to perform requests
